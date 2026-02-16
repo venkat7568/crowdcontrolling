@@ -1,0 +1,26 @@
+{
+  "areas": [
+    {
+      "name": "Area 1",
+      "camera_index": 0,
+      "max_count": 9,
+      "density_limit": 0.8,
+      "chaos_threshold": 9.0
+    },
+    {
+      "name": "Area 2",
+      "camera_index": 1,
+      "max_count": 100,
+      "density_limit": 0.7,
+      "chaos_threshold": 2.5
+    }
+  ],
+  "detection": {
+    "confidence_threshold": 0.4,
+    "model_path": "models/yolov8n.pt",
+    "input_size": 480
+  },
+  "smoothing_window": 30,
+  "hysteresis_frames": 5,
+  "alert_cooldown_seconds": 30
+}

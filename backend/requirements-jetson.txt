@@ -1,0 +1,35 @@
+# Jetson Nano requirements (JetPack 4.6+, Python 3.8)
+# OpenCV and NumPy come pre-installed with JetPack SDK — do NOT pip install them
+# PyTorch and TensorRT come pre-installed with JetPack SDK
+
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+websockets>=12.0
+ultralytics>=8.0.0
+pydantic>=2.5.0
+
+# NOTE: On Jetson Nano (JetPack 4.6, L4T R32.7.x):
+#
+#   Pre-installed via JetPack (do NOT pip install these):
+#     - OpenCV 4.1.1 (CUDA-accelerated)
+#     - NumPy 1.19.x
+#     - CUDA 10.2, cuDNN 8.2, TensorRT 8.x
+#
+#   Python 3.8 venv setup:
+#     sudo apt-get install python3.8 python3.8-venv python3.8-dev
+#     python3.8 -m venv venv
+#     source venv/bin/activate
+#
+#   PyTorch: Must install from NVIDIA wheel (NOT PyPI — PyPI wheels don't have CUDA for aarch64):
+#     For Python 3.8 + JetPack 4.6:
+#       wget https://developer.download.nvidia.com/compute/redist/jp/v461/pytorch/torch-1.11.0a0+17540c5-cp38-cp38-linux_aarch64.whl
+#       pip3 install torch-1.11.0a0+17540c5-cp38-cp38-linux_aarch64.whl
+#     Or check latest wheels at: https://forums.developer.nvidia.com/t/pytorch-for-jetson/72048
+#
+#   TorchVision (install AFTER PyTorch):
+#     pip3 install torchvision==0.12.0
+#
+#   Verify installation:
+#     python3 -c "import torch; print(torch.__version__, torch.cuda.is_available())"
+#     python3 -c "import cv2; print(cv2.__version__)"
+#     python3 -c "import tensorrt; print(tensorrt.__version__)"
